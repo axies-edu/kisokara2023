@@ -1,0 +1,88 @@
+---
+const { id } = Astro.props;
+
+interface Props {
+  id: string;
+}
+---
+
+<div
+  id=`modal-${id}`
+  aria-hidden="true"
+  class="js-modal z-20 hidden [&.is-open]:block"
+>
+  <div
+    tabindex="-1"
+    data-micromodal-close
+    class="fixed inset-0 grid place-items-center bg-black/80"
+  >
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-1-title"
+      class="max-w-6xl p-4"
+    >
+      <button
+        aria-label="Close modal"
+        data-micromodal-close
+        class="absolute right-0 top-0 grid h-10 w-10 place-items-center bg-black text-neutral-300 hover:bg-neutral-800"
+      >
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="20.5061"
+            width="2"
+            height="29"
+            transform="rotate(45 20.5061 0)"
+            fill="currentColor"></rect>
+          <rect
+            width="2"
+            height="29"
+            transform="matrix(-0.707107 0.707107 0.707107 0.707107 1.41422 0)"
+            fill="currentColor"></rect>
+        </svg>
+        <span class="sr-only">とじる</span></button
+      >
+
+      <div id=`modal-${id}-content` class="bg-black">
+        <video
+          tabindex="0"
+          controls
+          src=`/assets/videos/${id}.mp4`
+          playsinline
+          preload="none"
+          width="1920"
+          height="1080"
+          class="aspect-video"
+        >
+          <track
+            default
+            kind="captions"
+            label="日本語"
+            src=`/assets/vtt/${id}.vtt`
+            srclang="ja"
+          />
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  video::cue {
+    @apply leading-none;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    video::cue {
+      @apply bg-black/80 text-lg lg:text-2xl;
+    }
+    video::cue(.styled) {
+      @apply bg-black/80;
+    }
+  }
+</style>

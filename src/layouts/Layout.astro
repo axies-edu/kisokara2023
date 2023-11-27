@@ -1,0 +1,35 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import '../styles/index.css';
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<script>
+  import popover from '../scripts/popover';
+  popover('.js-nav-trigger', '.js-nav-container');
+</script>
+
+<html lang="ja" class="scroll-pt-4 scroll-smooth font-noto lg:scroll-pt-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0ea5e9" />
+    <title>{title}</title>
+  </head>
+  <body
+    class="js-fix-scrollbar flex min-h-screen flex-col bg-sky-100 text-neutral-700 antialiased"
+  >
+    <Header />
+    <slot />
+    <Footer />
+    <slot name="after-footer" />
+  </body>
+</html>

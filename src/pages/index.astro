@@ -1,0 +1,18 @@
+---
+import CardList from '../components/CardList';
+import ModalList from '../components/ModalList.astro';
+import { storiesData, videosData, allKeywords } from '../contents/data';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="基礎から学ぶ著作権">
+  <main class="m-auto max-w-[120rem] grow px-4 py-8 pb-10 md:px-8 xl:px-10">
+    <CardList
+      client:only="react"
+      storiesData={storiesData}
+      videosData={videosData}
+      allKeywords={allKeywords}
+    />
+  </main>
+  <ModalList data={videosData} slot="after-footer" />
+</Layout>

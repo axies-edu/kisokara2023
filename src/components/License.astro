@@ -1,0 +1,41 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+interface Props {
+  align?: 'right' | 'left' | 'center';
+  className?: string;
+}
+
+const markNames = ['cc', 'by', 'nd'];
+const { align, className } = Astro.props;
+---
+
+<div class={className}>
+  <a
+    href="https://creativecommons.org/licenses/by-nd/4.0/"
+    target="_blank"
+    rel="noreferrer noopener"
+    class="inline-block transition-all hover:opacity-75"
+  >
+    <div
+      class={twMerge(
+        'flex flex-col items-center',
+        align === 'right' && 'xl:flex-row-reverse xl:[&>p]:mt-0',
+        align === 'left' && 'md:items-start'
+      )}
+    >
+      <div class="flex gap-0.5">
+        {
+          markNames.map((markName) => {
+            const src = `./assets/images/icon-${markName}.svg`;
+            const alt = `クリエイティブ・コモンズ・ライセンスの ${markName.toUpperCase()} マーク`;
+            return <img src={src} alt={alt} width="22" height="22" />;
+          })
+        }
+      </div>
+      <p class="mt-1 text-xs leading-normal">
+        表示-改変禁止 4.0 国際（CC BY-ND4.0）
+      </p>
+    </div>
+  </a>
+</div>

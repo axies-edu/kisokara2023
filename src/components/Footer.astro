@@ -1,0 +1,45 @@
+---
+import License from './License.astro';
+import SiteLogo from './SiteLogo.astro';
+
+const isHome = Astro.url.pathname === '/';
+const siteLogoClassName = 'max-w-[7.5rem]';
+---
+
+<footer class="bg-sky-200 px-4 pb-10 pt-9 md:px-8 lg:px-0 lg:pb-12 lg:pt-11">
+  <div
+    class="mx-auto flex max-w-[120rem] flex-col justify-between gap-6 md:flex-row lg:px-10"
+  >
+    <div
+      class="flex basis-full flex-col items-center justify-center md:shrink-0 md:basis-1/2 md:items-start"
+    >
+      {
+        isHome ? (
+          <div>
+            <SiteLogo className={siteLogoClassName} />
+          </div>
+        ) : (
+          <a href="/">
+            <SiteLogo className={siteLogoClassName} />
+          </a>
+        )
+      }
+      <License align="left" className="mt-4" />
+    </div>
+    <div class="flex flex-col items-center justify-end md:items-start">
+      <div class="mx-auto flex max-w-lg items-center gap-1">
+        <div class="max-w-[4rem] shrink-0">
+          <img src="/assets/images/sartras-logo.png" alt="SARTRAS" />
+        </div>
+        <p class="text-xs leading-snug">
+          この教材は、一般社団法人
+          授業目的公衆送信補償金等管理協会（SARTRAS）の共通目的基金の助成を受けて制作しています。
+        </p>
+      </div>
+      <div class="mt-4 flex flex-col items-center gap-4 md:ml-auto md:flex-row">
+        <span class="text-sm">大学ICT推進協議会</span>
+        <img class="w-20" src="/assets/images/axies-logo.svg" alt="AXIES" />
+      </div>
+    </div>
+  </div>
+</footer>
