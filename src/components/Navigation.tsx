@@ -22,7 +22,7 @@ const menuItems = [
 const Navigation = () => (
   <nav
     className={twMerge(
-      'js-nav-container fixed left-4 top-16 h-min max-w-[17.5rem] shrink-0 basis-1/4 translate-y-1 overflow-hidden rounded-3xl bg-white p-2 py-3 leading-snug opacity-0 shadow-[0_0_1rem_rgba(31,100,164,0.2)] transition-all',
+      'js-nav-container invisible fixed left-4 top-16 h-min max-w-[17.5rem] shrink-0 basis-1/4 translate-y-1 overflow-hidden rounded-3xl bg-white p-2 py-3 leading-snug opacity-0 shadow-[0_0_1rem_rgba(31,100,164,0.2)] transition-all',
       'md:max-w-md',
       'xl:visible xl:sticky xl:top-8 xl:h-min xl:max-h-[calc(100svh-4rem)] xl:max-w-none xl:translate-x-3 xl:translate-y-0 xl:rounded-[2rem] xl:bg-transparent xl:p-0 xl:opacity-100 xl:shadow-none'
     )}
