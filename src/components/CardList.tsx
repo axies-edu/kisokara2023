@@ -74,7 +74,7 @@ const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
               backgroundColor: state.isFocused
                 ? colors.sky[100]
                 : 'transparent',
-              color: state.isSelected ? colors.sky[600] : colors.neutral[900],
+              color: state.isSelected ? colors.sky[600] : colors.neutral[700],
             }),
           }}
         />
