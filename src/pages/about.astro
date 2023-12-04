@@ -1,0 +1,45 @@
+---
+import ChildPageContainer from '../components/ChildPageContainer.astro';
+import CreditNotice from '../components/CreditNotice.astro';
+import Layout from '../layouts/Layout.astro';
+
+const title = 'この教材について';
+---
+
+<Layout title={title + ' | 基礎から学ぶ著作権'}>
+  <ChildPageContainer title={title}>
+    <div class="grid gap-6 lg:gap-10">
+      <section>
+        <h2 class="mb-4">企画・制作</h2>
+        <p>一般社団法人大学ICT推進協議会（AXIES）</p>
+      </section>
+      <section class="[&_p]:indent-[0.875rem]">
+        <h2 class="mb-4">企画意図</h2>
+        <p>
+          この教材は、大学生を主な対象として、著作権という制度について基礎からわかりやすく学んでもらうことを目指して制作したものです。2022年度に公開する動画教材8本に続き2023年度には15本の動画教材の制作・公開を予定しています。
+        </p>
+        <p>
+          インターネットの利用が進む中で、例えばSNSへの投稿など、わたしたちの日常の行為の様々な場面で、著作物の利用に際して著作権が関係してきます。例えば、他人の著作物を無断でSNSにアップロードして多数の人に見せてしまうと、その著作物の権利を持っている人の「公衆送信権」を侵害したことになります。他方で、わたしたち自身が、著作物を作り、著作の意図に沿った利用を求めたいこともあるでしょう。
+        </p>
+        <p>
+          著作権法は、著作物を公正に利用することと、作った人（著作者等）の権利を保護することとのバランスを取って、文化の発展に寄与することを目的とした法です。この教材では、具体的な事例を通して、著作権を様々な側面から取り上げています。この教材をきっかけに、たくさんの方が著作物についての著作者と利用者の権利を身近に感じ、正しい知識を踏まえてその利用に役立てていただけると幸いです。
+        </p>
+      </section>
+      <section>
+        <h2 class="mb-4">関連情報</h2>
+        <p>
+          この教材は、一般社団法人
+          授業目的公衆送信補償金等管理協会（SARTRAS）の共通目的基金の助成を受けて制作しています。AXIESでは、この教材の他に、教員向けのPDF冊子等の制作も行っています。詳しくは、下記のURLをご覧ください。
+          <a
+            class="block underline"
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://axies.jp/report/copyright_education/"
+            >https://axies.jp/report/copyright_education/</a
+          >
+        </p>
+      </section>
+      <CreditNotice />
+    </div>
+  </ChildPageContainer>
+</Layout>
