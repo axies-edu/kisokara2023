@@ -4,10 +4,11 @@ import { twMerge } from 'tailwind-merge';
 interface Props {
   align?: 'right' | 'left' | 'center';
   className?: string;
+  reverse?: boolean;
 }
 
 const markNames = ['cc', 'by', 'nd'];
-const { align, className } = Astro.props;
+const { align, className, reverse } = Astro.props;
 ---
 
 <div class={className}>
@@ -20,6 +21,7 @@ const { align, className } = Astro.props;
     <div
       class={twMerge(
         'flex flex-col items-center',
+        reverse && 'flex-col-reverse gap-2 md:flex-row-reverse md:gap-0',
         align === 'right' && 'xl:flex-row-reverse xl:[&>p]:mt-0',
         align === 'left' && 'md:items-start'
       )}
@@ -33,9 +35,7 @@ const { align, className } = Astro.props;
           })
         }
       </div>
-      <p class="mt-1 text-xs leading-normal">
-        表示-改変禁止 4.0 国際（CC BY-ND4.0）
-      </p>
+      <p class="mt-1 text-xs/normal">表示-改変禁止 4.0 国際（CC BY-ND4.0）</p>
     </div>
   </a>
 </div>
