@@ -1,0 +1,29 @@
+---
+import { twJoin } from 'tailwind-merge';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<main
+  class="m-auto max-w-[120rem] grow px-4 py-6 md:px-8 md:pb-10 xl:px-10 xl:pt-4"
+>
+  <div
+    class={twJoin(
+      'grid h-full max-w-[54.25rem] flex-col gap-6 overflow-hidden rounded-[2rem] bg-white p-6 text-sm shadow-[0_0_1rem_rgba(31,100,164,0.08)]',
+      'md:p-10 md:text-base lg:gap-10',
+      '[&_h2]:text-lg [&_h2]:font-bold lg:[&_h2]:text-2xl',
+      '[&_p]:leading-relaxed'
+    )}
+  >
+    <h1
+      class="border-b-2 border-sky-400 pb-4 text-2xl/normal font-bold lg:text-[2rem]"
+    >
+      {title}
+    </h1>
+    <slot />
+  </div>
+</main>

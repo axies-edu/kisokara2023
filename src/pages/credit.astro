@@ -1,0 +1,98 @@
+---
+import { twMerge } from 'tailwind-merge';
+import ChildPageContainer from '../components/ChildPageContainer.astro';
+import CreditNotation from '../components/CreditNotice.astro';
+import Layout from '../layouts/Layout.astro';
+
+const title = 'クレジット';
+
+const creditList = [
+  {
+    label: '著作者',
+    names: [
+      '布施 泉（北海道大学）',
+      '喜多 一（京都大学）',
+      '和田 智仁（鹿屋体育大学）',
+      '多川 孝央（九州大学 ～2023.3・筑紫女学園大学2023.4～）',
+      '隅谷 孝洋（広島大学）',
+      '天野 由貴（東京工業大学）',
+    ],
+  },
+  {
+    label: '法律監修',
+    names: ['木村 剛大（小林・弓削田法律事務所）'],
+  },
+  {
+    label: '出演者',
+    names: [
+      '松永 澪（本田 葵）',
+      '永山 桜（長野 香澄）',
+      '石田 流星（井岡 直哉）',
+      '明村 智也（田村 涼太）',
+      '奥村 そら（内田 絵里）',
+    ],
+  },
+  {
+    label: 'ナレーター',
+    names: ['赤城 進（天の声）'],
+  },
+  {
+    label: '制作協力',
+    names: [
+      '株式会社パフォーマ',
+      '株式会社獅子猿',
+      '有限会社オーシャンピクチャーズ',
+    ],
+  },
+  {
+    label: '制作スタッフ',
+    names: [
+      'プロデューサー 川原田 剛士',
+      'ディレクター 宇治 圭介',
+      '制作 小野瀬 孝志、小畑 智紀',
+      '撮影 吉村 大樹',
+      '音楽 中村 太一朗',
+    ],
+  },
+  {
+    label: 'Webサイト制作',
+    names: ['株式会社キテレツ'],
+  },
+];
+---
+
+<Layout title={title + ' | 基礎から学ぶ著作権'}>
+  <ChildPageContainer title={title}>
+    <section>
+      <h2 class="mb-4">企画・制作</h2>
+      <p>一般社団法人大学ICT推進協議会（AXIES）</p>
+    </section>
+    <section class="grid">
+      {
+        creditList.map(({ label, names }, i) => (
+          <div
+            class={twMerge(
+              i % 2 === 0 ? 'bg-neutral-100 md:bg-neutral-50' : 'bg-white',
+              'grid p-2 md:grid-cols-[10rem,1fr] md:p-4'
+            )}
+          >
+            <h3 class="mb-1.5 text-sm/relaxed font-bold text-neutral-600 md:mb-0 md:text-base/relaxed">
+              {label}
+            </h3>
+            <ul class="grid gap-1 leading-relaxed">
+              {names.map((name) => (
+                <li>{name}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </section>
+    <section>
+      <p>
+        本教材は、一般社団法人授業目的公衆送信補償金等管理協会（SARTRAS）の共通目的基金の助成を受けて制作されています。
+      </p>
+    </section>
+    <CreditNotation />
+  </ChildPageContainer>
+</Layout>

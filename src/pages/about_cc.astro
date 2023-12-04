@@ -1,0 +1,44 @@
+---
+import ChildPageContainer from '../components/ChildPageContainer.astro';
+import CreditNotation from '../components/CreditNotice.astro';
+import Layout from '../layouts/Layout.astro';
+
+const title = 'CCについて';
+
+const contents = [
+  {
+    title: '表示',
+    description:
+      'あなたは適切なクレジットを表示し、ライセンスへのリンクを提供し、変更があったらその旨を示さなければなりません。これらは合理的であればどのような方法で行っても構いませんが、許諾者があなたやあなたの利用行為を支持していると示唆するような方法は除きます。',
+    imageSrc: '/assets/images/icon-by.svg',
+  },
+  {
+    title: '改変禁止',
+    description:
+      'あなたがこの資料をリミックスし、改変し、あるいはこの資料をベースに新しい作品を作った場合、あなたは改変された資料を頒布してはなりません。',
+    imageSrc: '/assets/images/icon-nd.svg',
+  },
+];
+---
+
+<Layout title={title + ' | 基礎から学ぶ著作権'}>
+  <ChildPageContainer title={title}>
+    <div class="grid gap-6 lg:gap-10 [&_h2]:text-2xl">
+      <p>あなたの従うべき条件は以下の通りです。</p>
+      <div class="grid gap-10 lg:grid-cols-2">
+        {
+          contents.map(({ title, description, imageSrc }) => (
+            <section class="grid gap-4 place-self-start">
+              <div class="grid place-items-center gap-4">
+                <img class="h-auto w-16 md:w-[6.25rem]" src={imageSrc} alt="" />
+                <h2 class="!text-2xl">{title}</h2>
+              </div>
+              <p>{description}</p>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+    <CreditNotation />
+  </ChildPageContainer>
+</Layout>

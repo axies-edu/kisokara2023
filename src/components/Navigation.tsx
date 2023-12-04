@@ -3,19 +3,19 @@ import { twMerge } from 'tailwind-merge';
 const menuItems = [
   {
     label: 'この教材について',
-    href: '',
+    href: '/about',
   },
   {
     label: 'CCについて',
-    href: '',
+    href: '/about_cc',
   },
   {
     label: 'クレジット',
-    href: '',
+    href: '/credit',
   },
   {
-    label: '資料ダウンロード',
-    href: '',
+    label: '資料',
+    href: '/data',
   },
 ];
 
