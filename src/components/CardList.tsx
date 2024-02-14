@@ -1,13 +1,12 @@
-import { useRef, useState } from 'react';
-import type { SetStateAction } from 'react';
-import Select from 'react-select';
+import { useEffect, useRef, useState } from 'react';
+import Select, { components } from 'react-select';
 import colors from 'tailwindcss/colors';
 import useMicromodal from '../hooks/useMicromodal';
 import Card from './Card';
 import Toc from './Toc';
 import type { StoryData, Keyword } from '../contents/data';
 import type { VideoData } from '../utils/getVideosData';
-import type { SelectInstance } from 'react-select';
+import type { SelectInstance, InputProps } from 'react-select';
 
 interface Props {
   storiesData: StoryData[];
@@ -17,8 +16,13 @@ interface Props {
 
 const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
   const [selectedKeyword, setSelectedKeyword] = useState<Keyword | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [inputStatus, setInputStatus] = useState<
+    'inputStart' | 'inputEnd' | null
+  >(null);
   const selectRef = useRef<SelectInstance<Keyword> | null>(null);
   const selectContainerRef = useRef<HTMLDivElement | null>(null);
+  const isComposingRef = useRef(false);
 
   const showStoriesData = selectedKeyword
     ? storiesData.filter((storyData) =>
@@ -26,7 +30,7 @@ const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
       )
     : storiesData;
 
-  const handleChange = (selectedKeyword: SetStateAction<Keyword | null>) => {
+  const handleChange = (selectedKeyword: Keyword) => {
     setSelectedKeyword(selectedKeyword);
     selectContainerRef.current.scrollIntoView({
       behavior: 'smooth',
@@ -39,6 +43,28 @@ const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
     selectRef.current.clearValue();
   };
 
+  const Input = ({ children, ...props }: InputProps) => {
+    useEffect(() => {
+      if (!selectContainerRef.current) return;
+      const inputElement = selectContainerRef.current.querySelector('input');
+      inputElement.focus();
+    }, []);
+
+    return (
+      <components.Input
+        {...props}
+        onCompositionStart={() => (isComposingRef.current = true)}
+        onCompositionEnd={() => {
+          isComposingRef.current = false;
+          setInputStatus('inputEnd');
+        }}
+        onKeyDown={() => setInputStatus('inputStart')}
+      >
+        {children}
+      </components.Input>
+    );
+  };
+
   useMicromodal();
 
   return (
@@ -49,15 +75,21 @@ const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
       >
         キーワードから絞り込む{' '}
         <Select
-          ref={selectRef}
+          className="min-w-[15rem] grow"
+          components={{ Input }}
           isClearable
-          isSearchable={false}
-          noOptionsMessage={() => '該当するキーワードがありません'}
+          isSearchable
           onChange={handleChange}
           options={allKeywords}
-          placeholder="選択してください"
-          tabSelectsValue
-          className="min-w-[15rem] grow"
+          placeholder="入力してください"
+          ref={selectRef}
+          noOptionsMessage={() => {
+            if (isComposingRef.current) {
+              return '入力中...';
+            } else {
+              return '一致するキーワードがありません';
+            }
+          }}
           styles={{
             control: (baseStyles, state) => ({
               ...baseStyles,
@@ -69,11 +101,16 @@ const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
                 borderColor: colors.sky[600],
               },
             }),
+            noOptionsMessage: (baseStyles) => ({
+              ...baseStyles,
+              textAlign: 'left',
+            }),
             option: (baseStyles, state) => ({
               ...baseStyles,
-              backgroundColor: state.isFocused
-                ? colors.sky[100]
-                : 'transparent',
+              backgroundColor:
+                state.isFocused || state.isSelected
+                  ? colors.sky[100]
+                  : 'transparent',
               color: state.isSelected ? colors.sky[600] : colors.neutral[700],
             }),
           }}
