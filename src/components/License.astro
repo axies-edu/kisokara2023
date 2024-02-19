@@ -3,12 +3,13 @@ import { twMerge } from 'tailwind-merge';
 
 interface Props {
   align?: 'right' | 'left' | 'center';
+  excludeNd?: boolean;
   className?: string;
   reverse?: boolean;
 }
 
 const markNames = ['cc', 'by', 'nd'];
-const { align, className, reverse } = Astro.props;
+const { align, excludeNd, className, reverse } = Astro.props;
 ---
 
 <div class={className}>
@@ -29,6 +30,8 @@ const { align, className, reverse } = Astro.props;
       <div class="flex gap-0.5">
         {
           markNames.map((markName) => {
+            if (excludeNd && markName === 'nd') return;
+
             const src = `/assets/images/icon-${markName}.svg`;
             const alt = `クリエイティブ・コモンズ・ライセンスの ${markName.toUpperCase()} マーク`;
             return <img src={src} alt={alt} width="22" height="22" />;
