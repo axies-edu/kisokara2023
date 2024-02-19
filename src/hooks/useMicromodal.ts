@@ -14,6 +14,10 @@ const useMicromodal = () => {
   const subtitledVideoTriggersRef = useRef<NodeList>(null);
 
   useEffect(() => {
+    scrollbarWidthRef.current = getScrollbarWidth();
+  }, []);
+
+  useEffect(() => {
     subtitledVideoTriggersRef.current = document.querySelectorAll(
       '.js-subtitled-video-trigger'
     );

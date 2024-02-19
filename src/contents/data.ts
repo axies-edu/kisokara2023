@@ -43,7 +43,9 @@ export interface StoryData {
   id: number;
   title: string;
   description: string;
-  keywordIds: number[];
+  keywordIds?: number[];
+  storyLabel?: string;
+  buttonLabels?: string[];
 }
 
 export const storiesData: StoryData[] = [
@@ -102,5 +104,27 @@ export const storiesData: StoryData[] = [
     description:
       '映画など違法ダウンロードが禁止されているもの、オープンソースのような誰でもダウンロードできるもの、その違いが知りたくなった3人は先生の元へ向かいます。',
     keywordIds: [24, 25, 26],
+  },
+  {
+    id: 9,
+    title: 'AIが学んでAIが作り出す？生成AIと著作権',
+    description:
+      '映画など違法ダウンロードが禁止されているもの、オープンソースのような誰でもダウンロードできるもの、その違いが知りたくなった3人は先生の元へ向かいます。',
+    buttonLabels: ['物語編／解説編を見る'],
+  },
+  {
+    id: 10,
+    title: '出演俳優からみた著作権（インタビュー集）',
+    description:
+      '映画など違法ダウンロードが禁止されているもの、オープンソースのような誰でもダウンロードできるもの、その違いが知りたくなった3人は先生の元へ向かいます。',
+    buttonLabels: ['インタビューを見る'],
+  },
+  {
+    id: 11,
+    title: '出演俳優からのおすすめとメッセージ',
+    description:
+      '映画など違法ダウンロードが禁止されているもの、オープンソースのような誰でもダウンロードできるもの、その違いが知りたくなった3人は先生の元へ向かいます。',
+    storyLabel: 'INTERVIEW',
+    buttonLabels: ['おすすめを見る', 'メッセージを見る'],
   },
 ];

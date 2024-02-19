@@ -4,13 +4,14 @@ import type { VideoType } from '../utils/getVideosData';
 interface Props {
   videoId: string;
   videoType: VideoType;
+  customLabel: string;
 }
 
-const VideoOpenButton = ({ videoId, videoType }: Props) => {
+const VideoOpenButton = ({ videoId, videoType, customLabel }: Props) => {
   const isStory = videoType === 'story' ?? false;
   const isExplanation = videoType === 'explanation' ?? false;
 
-  const buttonLabel = {
+  const defaultLabel = {
     story: '物語編を見る',
     explanation: '解説編を見る',
   };
@@ -18,7 +19,7 @@ const VideoOpenButton = ({ videoId, videoType }: Props) => {
     <button
       data-micromodal-trigger={`modal-${videoId}`}
       className={twMerge(
-        'flex w-full items-center justify-center gap-2 rounded-full bg-gray-600 px-2 py-3 text-sm leading-tight text-white outline-none hover:bg-gray-700 sm:text-3.75',
+        'flex w-full items-center justify-center gap-2 rounded-full bg-gray-600 px-2 py-3 text-sm font-bold leading-tight text-white outline-none hover:bg-gray-700 sm:text-3.75',
         'focus-visible:ring-1 focus-visible:ring-offset-2',
         isStory && 'bg-sky-600 hover:bg-sky-500 focus-visible:ring-sky-500',
         isExplanation &&
@@ -45,7 +46,7 @@ const VideoOpenButton = ({ videoId, videoType }: Props) => {
           stroke="currentColor"
         ></rect>
       </svg>
-      {buttonLabel[videoType] ?? 'その他'}
+      {customLabel ? customLabel : defaultLabel[videoType] ?? 'その他'}
     </button>
   );
 };

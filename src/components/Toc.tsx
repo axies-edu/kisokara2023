@@ -37,7 +37,7 @@ const Toc = ({ storiesData, onClick }: Props) => {
                 onClick={onClick}
                 className="js-toc-close-trigger my-1.5 flex w-full items-center gap-2 rounded-2xl px-3 py-1.5 text-left outline-none ring-0 transition-all hover:bg-sky-50 focus-visible:bg-sky-50"
               >
-                <span className="font-barlow text-lg leading-tight text-sky-600">
+                <span className="min-w-[1.25rem] font-barlow text-lg tabular-nums leading-tight text-sky-600">
                   {id}
                 </span>
                 <span className="text-sm">{title}</span>
