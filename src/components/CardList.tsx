@@ -26,7 +26,7 @@ const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
 
   const showStoriesData = selectedKeyword
     ? storiesData.filter((storyData) =>
-        storyData.keywordIds.includes(selectedKeyword.id)
+        storyData.keywordIds?.includes(selectedKeyword.id)
       )
     : storiesData;
 
@@ -118,14 +118,11 @@ const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
       </div>
       <div className="flex flex-row-reverse gap-6 lg:gap-8 2xl:gap-10">
         <ul className="grid auto-rows-max grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8 2xl:grid-cols-3 2xl:gap-10">
-          {showStoriesData.map(({ id, title, description, keywordIds }) => (
-            <li key={id}>
+          {showStoriesData.map((data) => (
+            <li key={data.id}>
               <Card
-                id={id}
-                title={title}
-                description={description}
+                {...data}
                 allKeywords={allKeywords}
-                keywordIds={keywordIds}
                 videosData={videosData}
               />
             </li>
