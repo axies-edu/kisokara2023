@@ -46,7 +46,7 @@ const popover = (triggerSelector: string, containerSelector: string) => {
     firstTabbable.addEventListener(
       'transitionend',
       () => {
-        lastTabbable.focus();
+        firstTabbable.focus();
       },
       { once: true }
     );
