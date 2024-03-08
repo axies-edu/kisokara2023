@@ -4,7 +4,7 @@ dist/
 .output/
 
 # Large files
-public/assets/videos/
+public/clips/*
 
 # dependencies
 node_modules/
