@@ -397,7 +397,6 @@ export const allData: Data[] = [
     description:
       '主演5名の俳優さんに、本作出演での経験を踏まえ、インタビューしました。今後役立ちそうな著作権の知識、クリエイティブ・コモンズ・ライセンスでの本教材の提供、その他著作権に関わるさまざまな考えを伺います。',
     keywordIds: [67, 45],
-    storyLabel: 'INTERVIEW',
     videos: [
       {
         id: '23a',
