@@ -1,33 +1,28 @@
 import SubtitledVideoOpenButton from './SubtitledVideoOpenButton';
 import VideoOpenButton from './VideoOpenButton';
-import type { Keyword } from '../contents/data';
-import type { VideoData } from '../utils/getVideosData';
+import type { Keyword, Video } from '../contents/data';
 
 interface Props {
   id: number;
   title: string;
   description: string;
+  videos: Video[];
   allKeywords: Keyword[];
   keywordIds?: number[];
   storyLabel?: string;
-  buttonLabels?: string[];
-  videosData: VideoData[];
 }
 
 const Card = ({
   id,
   title,
   description,
+  videos,
   allKeywords,
   keywordIds,
   storyLabel,
-  buttonLabels,
-  videosData,
 }: Props) => {
   const imageSrc = `${id.toString().padStart(2, '0')}.jpg`;
-  const currentVideosData = videosData.filter(
-    (data) => data.parentStoryId === id
-  );
+
   return (
     <div
       id={`card-${id}`}
@@ -39,6 +34,7 @@ const Card = ({
         width="320"
         height="180"
         className="aspect-video w-full bg-gray-200 object-cover"
+        loading={id < 3 ? 'eager' : 'lazy'}
       />
       <div className="flex basis-full flex-col p-4 pb-6 sm:p-6">
         <div className="mb-4">
@@ -66,19 +62,19 @@ const Card = ({
             {description}
           </p>
         </div>
-        <div className="-mx-1 mt-auto flex justify-stretch gap-2">
-          {currentVideosData.map(({ id, type }, index) => {
+        <div className="-mx-1 mt-auto flex flex-wrap justify-stretch gap-2">
+          {videos.map((video, index) => {
             return (
               <div
-                key={id}
-                className="flex grow basis-1/2 flex-col items-center gap-2"
+                key={video.id}
+                className="flex min-w-[9.5rem] grow basis-[calc(50%-0.5rem)] flex-col items-center gap-2"
               >
                 <VideoOpenButton
-                  videoId={id}
-                  videoType={type}
-                  customLabel={buttonLabels?.[index]}
+                  videoId={video.id}
+                  customLabel={video.buttonLabel}
+                  index={index}
                 />
-                <SubtitledVideoOpenButton videoId={id} />
+                <SubtitledVideoOpenButton videoId={video.id} />
               </div>
             );
           })}
