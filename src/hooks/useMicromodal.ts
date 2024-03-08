@@ -49,12 +49,14 @@ const useMicromodal = () => {
 
       activeVideoElementRef.current.load();
       activeVideoElementRef.current.focus();
+      activeVideoElementRef.current.addEventListener('canplay', () => {
+        activeVideoElementRef.current.play();
+      });
       addScrollbarWidth(scrollbarWidthRef.current);
     };
 
     const onClose = () => {
       activeVideoElementRef.current.pause();
-      activeVideoElementRef.current = null;
       isTextTrackVisibleRef.current = false;
       removeScrollbarWidth();
     };

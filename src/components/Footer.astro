@@ -19,7 +19,10 @@ const siteLogoClassName = 'max-w-[7.5rem]';
             <SiteLogo className={siteLogoClassName} />
           </div>
         ) : (
-          <a href="/">
+          <a
+            href="/"
+            class="outline-none focus-visible:ring-1 focus-visible:ring-sky-500"
+          >
             <SiteLogo className={siteLogoClassName} />
           </a>
         )
@@ -29,7 +32,12 @@ const siteLogoClassName = 'max-w-[7.5rem]';
     <div class="flex flex-col items-center justify-end md:items-start">
       <div class="mx-auto flex max-w-lg items-center gap-1">
         <div class="max-w-[4rem] shrink-0">
-          <img src="/assets/images/sartras-logo.png" alt="SARTRAS" />
+          <img
+            src="/assets/images/sartras-logo.png"
+            alt="SARTRAS"
+            width="468"
+            height="413"
+          />
         </div>
         <p class="text-xs leading-snug">
           この教材は、一般社団法人
@@ -38,7 +46,13 @@ const siteLogoClassName = 'max-w-[7.5rem]';
       </div>
       <div class="mt-4 flex flex-col items-center gap-4 md:ml-auto md:flex-row">
         <span class="text-sm">大学ICT推進協議会</span>
-        <img class="w-20" src="/assets/images/axies-logo.svg" alt="AXIES" />
+        <img
+          class="w-20"
+          src="/assets/images/axies-logo.svg"
+          alt="AXIES"
+          width="81"
+          height="26"
+        />
       </div>
     </div>
   </div>

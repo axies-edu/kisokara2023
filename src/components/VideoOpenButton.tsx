@@ -1,29 +1,24 @@
 import { twMerge } from 'tailwind-merge';
-import type { VideoType } from '../utils/getVideosData';
 
 interface Props {
   videoId: string;
-  videoType: VideoType;
   customLabel: string;
+  index: number;
 }
 
-const VideoOpenButton = ({ videoId, videoType, customLabel }: Props) => {
-  const isStory = videoType === 'story' ?? false;
-  const isExplanation = videoType === 'explanation' ?? false;
-
-  const defaultLabel = {
-    story: '物語編を見る',
-    explanation: '解説編を見る',
-  };
+const VideoOpenButton = ({ videoId, customLabel, index }: Props) => {
+  const isEven = index % 2 === 0;
+  const defaultLabel =
+    index === 0 ? '物語編を見る' : index === 1 ? '解説編を見る' : '動画を見る';
   return (
     <button
       data-micromodal-trigger={`modal-${videoId}`}
       className={twMerge(
         'flex w-full items-center justify-center gap-2 rounded-full bg-gray-600 px-2 py-3 text-sm font-bold leading-tight text-white outline-none hover:bg-gray-700 sm:text-3.75',
         'focus-visible:ring-1 focus-visible:ring-offset-2',
-        isStory && 'bg-sky-600 hover:bg-sky-500 focus-visible:ring-sky-500',
-        isExplanation &&
-          'bg-orange-500 hover:bg-orange-400 focus-visible:ring-orange-400'
+        isEven
+          ? 'bg-sky-600 hover:bg-sky-500 focus-visible:ring-sky-500'
+          : 'bg-orange-500 hover:bg-orange-400 focus-visible:ring-orange-400'
       )}
     >
       <svg
@@ -46,7 +41,7 @@ const VideoOpenButton = ({ videoId, videoType, customLabel }: Props) => {
           stroke="currentColor"
         ></rect>
       </svg>
-      {customLabel ? customLabel : defaultLabel[videoType] ?? 'その他'}
+      {customLabel ? customLabel : defaultLabel}
     </button>
   );
 };

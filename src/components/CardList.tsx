@@ -4,17 +4,15 @@ import colors from 'tailwindcss/colors';
 import useMicromodal from '../hooks/useMicromodal';
 import Card from './Card';
 import Toc from './Toc';
-import type { StoryData, Keyword } from '../contents/data';
-import type { VideoData } from '../utils/getVideosData';
+import type { Data, Keyword } from '../contents/data';
 import type { SelectInstance, InputProps } from 'react-select';
 
 interface Props {
-  storiesData: StoryData[];
-  videosData: VideoData[];
   allKeywords: Keyword[];
+  allData: Data[];
 }
 
-const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
+const CardList = ({ allKeywords, allData }: Props) => {
   const [selectedKeyword, setSelectedKeyword] = useState<Keyword | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [inputStatus, setInputStatus] = useState<
@@ -24,11 +22,9 @@ const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
   const selectContainerRef = useRef<HTMLDivElement | null>(null);
   const isComposingRef = useRef(false);
 
-  const showStoriesData = selectedKeyword
-    ? storiesData.filter((storyData) =>
-        storyData.keywordIds?.includes(selectedKeyword.id)
-      )
-    : storiesData;
+  const showData = selectedKeyword
+    ? allData.filter((data) => data.keywordIds?.includes(selectedKeyword.id))
+    : allData;
 
   const handleChange = (selectedKeyword: Keyword) => {
     setSelectedKeyword(selectedKeyword);
@@ -50,6 +46,8 @@ const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
       inputElement.focus();
     }, []);
 
+    useMicromodal();
+
     return (
       <components.Input
         {...props}
@@ -64,8 +62,6 @@ const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
       </components.Input>
     );
   };
-
-  useMicromodal();
 
   return (
     <>
@@ -118,18 +114,14 @@ const CardList = ({ storiesData, videosData, allKeywords }: Props) => {
       </div>
       <div className="flex flex-row-reverse gap-6 lg:gap-8 2xl:gap-10">
         <ul className="grid auto-rows-max grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8 2xl:grid-cols-3 2xl:gap-10">
-          {showStoriesData.map((data) => (
+          {showData.map((data) => (
             <li key={data.id}>
-              <Card
-                {...data}
-                allKeywords={allKeywords}
-                videosData={videosData}
-              />
+              <Card {...data} allKeywords={allKeywords} />
             </li>
           ))}
         </ul>
         <Toc
-          storiesData={storiesData}
+          storiesData={allData}
           onClick={() => {
             clearValue();
             setSelectedKeyword(null);

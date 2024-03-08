@@ -1,8 +1,9 @@
 ---
-const { id } = Astro.props;
+const { id, filename } = Astro.props;
 
 interface Props {
   id: string;
+  filename: string;
 }
 ---
 
@@ -53,7 +54,7 @@ interface Props {
         <video
           tabindex="0"
           controls
-          src=`/assets/videos/${id}.mp4`
+          src=`/clips/${filename}.mp4`
           playsinline
           preload="none"
           width="1920"
