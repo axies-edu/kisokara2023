@@ -5,6 +5,7 @@ export interface Data {
   keywordIds?: number[];
   storyLabel?: string;
   videos: Video[];
+  documents: Document[];
 }
 
 export interface Video {
@@ -17,6 +18,11 @@ export interface Keyword {
   id: number;
   value: string;
   label: string;
+}
+
+interface Document {
+  label?: string;
+  filename: string;
 }
 
 export const allData: Data[] = [
@@ -36,6 +42,7 @@ export const allData: Data[] = [
         filename: '2022_01b_somosomo',
       },
     ],
+    documents: [{ filename: '01.pdf' }],
   },
   {
     id: 2,
@@ -53,6 +60,7 @@ export const allData: Data[] = [
         filename: '2022_02b_koushu',
       },
     ],
+    documents: [{ filename: '02.pdf' }],
   },
   {
     id: 3,
@@ -70,6 +78,7 @@ export const allData: Data[] = [
         filename: '2022_03b_jinkaku',
       },
     ],
+    documents: [{ filename: '03.pdf' }],
   },
   {
     id: 4,
@@ -87,6 +96,7 @@ export const allData: Data[] = [
         filename: '2022_02b_hogokikan',
       },
     ],
+    documents: [{ filename: '04.pdf' }],
   },
   {
     id: 5,
@@ -104,6 +114,7 @@ export const allData: Data[] = [
         filename: '2022_05b_gakkou',
       },
     ],
+    documents: [{ filename: '05.pdf' }],
   },
   {
     id: 6,
@@ -121,6 +132,7 @@ export const allData: Data[] = [
         filename: '2022_06b_sns',
       },
     ],
+    documents: [{ filename: '06.pdf' }],
   },
   {
     id: 7,
@@ -138,6 +150,7 @@ export const allData: Data[] = [
         filename: '2022_07b_riyoukiyaku',
       },
     ],
+    documents: [{ filename: '07.pdf' }],
   },
   {
     id: 8,
@@ -155,6 +168,7 @@ export const allData: Data[] = [
         filename: '2022_08b_innyou',
       },
     ],
+    documents: [{ filename: '08.pdf' }],
   },
   {
     id: 9,
@@ -172,6 +186,7 @@ export const allData: Data[] = [
         filename: '2023_09b_pakuri',
       },
     ],
+    documents: [{ filename: '09.pdf' }],
   },
   {
     id: 10,
@@ -189,6 +204,7 @@ export const allData: Data[] = [
         filename: '2023_10b_shingai',
       },
     ],
+    documents: [{ filename: '10.pdf' }],
   },
   {
     id: 11,
@@ -206,6 +222,7 @@ export const allData: Data[] = [
         filename: '2023_11b_stageevent',
       },
     ],
+    documents: [{ filename: '11.pdf' }],
   },
   {
     id: 12,
@@ -223,6 +240,7 @@ export const allData: Data[] = [
         filename: '2023_12b_poster',
       },
     ],
+    documents: [{ filename: '12.pdf' }],
   },
   {
     id: 13,
@@ -240,6 +258,7 @@ export const allData: Data[] = [
         filename: '2023_13b_musicevent',
       },
     ],
+    documents: [{ filename: '13.pdf' }],
   },
   {
     id: 14,
@@ -257,6 +276,7 @@ export const allData: Data[] = [
         filename: '2023_14b_kenrijouto',
       },
     ],
+    documents: [{ filename: '14.pdf' }],
   },
   {
     id: 15,
@@ -274,6 +294,7 @@ export const allData: Data[] = [
         filename: '2023_15b_kyodaku',
       },
     ],
+    documents: [{ filename: '15.pdf' }],
   },
   {
     id: 16,
@@ -291,6 +312,7 @@ export const allData: Data[] = [
         filename: '2023_16b_ruijisei',
       },
     ],
+    documents: [{ filename: '16.pdf' }],
   },
   {
     id: 17,
@@ -308,6 +330,7 @@ export const allData: Data[] = [
         filename: '2023_17b_chitekizaisanken',
       },
     ],
+    documents: [{ filename: '17.pdf' }],
   },
   {
     id: 18,
@@ -324,6 +347,10 @@ export const allData: Data[] = [
         id: '18b',
         filename: '2023_18b_kaigai',
       },
+    ],
+    documents: [
+      { filename: '18.pdf' },
+      { label: '関連資料', filename: '18_01_material.pdf' },
     ],
   },
   {
@@ -342,6 +369,7 @@ export const allData: Data[] = [
         filename: '2023_19b_nijiteki',
       },
     ],
+    documents: [{ filename: '19.pdf' }],
   },
   {
     id: 20,
@@ -359,6 +387,7 @@ export const allData: Data[] = [
         filename: '2023_20b_utsurikomi',
       },
     ],
+    documents: [{ filename: '20.pdf' }],
   },
   {
     id: 21,
@@ -376,6 +405,7 @@ export const allData: Data[] = [
         filename: '2023_21b_shitekisiyou',
       },
     ],
+    documents: [{ filename: '21.pdf' }],
   },
   {
     id: 22,
@@ -390,6 +420,7 @@ export const allData: Data[] = [
         buttonLabel: '物語編／解説編を見る',
       },
     ],
+    documents: [{ filename: '22.pdf' }],
   },
   {
     id: 23,
@@ -404,6 +435,7 @@ export const allData: Data[] = [
         buttonLabel: 'インタビューを見る',
       },
     ],
+    documents: [{ filename: '23.pdf' }],
   },
   {
     id: 24,
@@ -424,6 +456,7 @@ export const allData: Data[] = [
         buttonLabel: 'メッセージを見る',
       },
     ],
+    documents: [{ filename: '24.pdf' }],
   },
 ];
 

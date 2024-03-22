@@ -9,7 +9,7 @@ const videosData = allData.flatMap((data) => data.videos);
 
 <Layout title="基礎から学ぶ著作権">
   <main class="m-auto max-w-[120rem] grow px-4 py-8 pb-10 md:px-8 xl:px-10">
-    <CardList client:only="react" allData={allData} allKeywords={allKeywords} />
+    <CardList client:load allData={allData} allKeywords={allKeywords} />
   </main>
   <ModalList data={videosData} slot="after-footer" />
 </Layout>
