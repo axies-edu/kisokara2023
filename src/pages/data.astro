@@ -53,7 +53,7 @@ const title = '資料';
                   <div class="md:flex">
                     <h3 class="text-sm/snug font-bold md:text-lg">{title}</h3>
                   </div>
-                  <div class="flex flex-col gap-2 md:flex-row md:gap-6">
+                  <div class="flex flex-col flex-wrap gap-2 md:flex-row md:gap-6 md:gap-y-2">
                     {documents.map(({ label = 'シナリオ', filename }) => (
                       <a
                         class="w-fit rounded-sm border-b border-neutral-400 leading-relaxed text-neutral-600 outline-none hover:opacity-75 focus-visible:border-transparent focus-visible:ring-1 focus-visible:ring-sky-500"
