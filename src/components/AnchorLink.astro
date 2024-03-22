@@ -1,0 +1,37 @@
+---
+import { twJoin } from 'tailwind-merge';
+
+const { href } = Astro.props;
+---
+
+<a
+  href={href}
+  class={twJoin(
+    'js-subtitled-video-trigger flex items-center justify-center gap-2 rounded-sm p-1 text-xs leading-tight text-neutral-600 outline-none hover:text-neutral-500 sm:text-sm',
+    'focus-visible:border-transparent focus-visible:ring-1 focus-visible:ring-sky-500'
+  )}
+>
+  <span class="flex items-center gap-2 border-b border-neutral-400 pb-1">
+    <svg
+      width="16"
+      height="17"
+      viewBox="0 0 16 17"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="0.5"
+        y="1.3335"
+        width="15"
+        height="15"
+        rx="7.5"
+        stroke="currentColor"></rect>
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M5.5 7.8403L6.00819 7.3335L8 9.31988L9.99181 7.3335L10.5 7.8403L8 10.3335L5.5 7.8403Z"
+        fill="currentColor"></path>
+    </svg>
+    <slot />
+  </span>
+</a>
