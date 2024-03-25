@@ -435,7 +435,7 @@ export const allData: Data[] = [
         buttonLabel: 'インタビューを見る',
       },
     ],
-    documents: [{ filename: '23.pdf' }],
+    documents: [],
   },
   {
     id: 24,
@@ -456,7 +456,7 @@ export const allData: Data[] = [
         buttonLabel: 'メッセージを見る',
       },
     ],
-    documents: [{ filename: '24.pdf' }],
+    documents: [],
   },
 ];
 
