@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
 const videosData = allData.flatMap((data) => data.videos);
 ---
 
-<Layout title="基礎から学ぶ著作権">
+<Layout title="基礎から学ぶ著作権" ogType="website">
   <main class="m-auto max-w-[120rem] grow px-4 py-8 pb-10 md:px-8 xl:px-10">
     <CardList client:load allData={allData} allKeywords={allKeywords} />
   </main>
