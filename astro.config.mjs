@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  site: 'https://copyright-edu.axies.jp/',
+  site: 'https://copyright-edu.axies.jp/video/',
   integrations: [
     tailwind({
       config: {
