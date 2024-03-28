@@ -89,11 +89,11 @@ export const allData: Data[] = [
     videos: [
       {
         id: '04a',
-        filename: '2022_02a_hogokikan',
+        filename: '2022_04a_hogokikan',
       },
       {
         id: '04b',
-        filename: '2022_02b_hogokikan',
+        filename: '2022_04b_hogokikan',
       },
     ],
     documents: [{ filename: '04.pdf' }],
