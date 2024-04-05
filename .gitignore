@@ -5,6 +5,7 @@ dist/
 
 # Large files
 public/clips/*
+!public/clips/.gitkeep
 
 # dependencies
 node_modules/
