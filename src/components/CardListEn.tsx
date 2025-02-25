@@ -3,8 +3,8 @@ import Select, { components } from 'react-select';
 import colors from 'tailwindcss/colors';
 import useMicromodal from '../hooks/useMicromodal';
 import CardEn from './CardEn';
-import Toc from './Toc';
-import type { Data, Keyword } from '../contents/data';
+import TocEn from './TocEn';
+import type { Data, Keyword } from '../contents/data_en';
 import type { SelectInstance, InputProps } from 'react-select';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
   allData: Data[];
 }
 
-const CardList = ({ allKeywords, allData }: Props) => {
+const CardListEn = ({ allKeywords, allData }: Props) => {
   const [selectedKeyword, setSelectedKeyword] = useState<Keyword | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [inputStatus, setInputStatus] = useState<
@@ -120,7 +120,7 @@ const CardList = ({ allKeywords, allData }: Props) => {
             </li>
           ))}
         </ul>
-        <Toc
+        <TocEn
           storiesData={allData}
           onClick={() => {
             clearValue();
@@ -132,4 +132,4 @@ const CardList = ({ allKeywords, allData }: Props) => {
   );
 };
 
-export default CardList;
+export default CardListEn;

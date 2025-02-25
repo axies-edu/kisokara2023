@@ -1,15 +1,18 @@
 ---
 interface Props {
   className: string;
+  isEn?: boolean;
 }
 
-const { className } = Astro.props;
+const { className, isEn } = Astro.props;
 ---
 
 <div class={className}>
   <img
-    src="/assets/images/logo.svg"
-    alt="基礎から学ぶ著作権"
+    src={isEn ? '/assets/images/logo_en.svg' : '/assets/images/logo.svg'}
+    alt={isEn
+      ? 'Learning about Copyright from the Basics'
+      : '基礎から学ぶ著作権'}
     width="180"
     height="103"
   />

@@ -1,0 +1,44 @@
+---
+import ChildPageContainer from '../../components/ChildPageContainer.astro';
+import CreditNotation from '../../components/CreditNotice.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Creative Commons License';
+
+const contents = [
+  {
+    title: 'Attribution',
+    description:
+      'You must give appropriate credit , provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.',
+    imageSrc: '/assets/images/icon-by.svg',
+  },
+  {
+    title: 'NoDerivatives ',
+    description:
+      'If you remix, transform, or build upon the material, you may not distribute the modified material.',
+    imageSrc: '/assets/images/icon-nd.svg',
+  },
+];
+---
+
+<Layout title={title + ' | Learning about Copyright from the Basics'} isEn>
+  <ChildPageContainer title={title}>
+    <div class="grid gap-6 lg:gap-10 [&_h2]:text-2xl">
+      <p>Under the following terms:</p>
+      <div class="grid gap-10 lg:grid-cols-2">
+        {
+          contents.map(({ title, description, imageSrc }) => (
+            <section class="grid gap-4 place-self-start">
+              <div class="grid place-items-center gap-4">
+                <img class="h-auto w-16 md:w-[6.25rem]" src={imageSrc} alt="" />
+                <h2 class="!text-2xl">{title}</h2>
+              </div>
+              <p>{description}</p>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+    <CreditNotation isEn />
+  </ChildPageContainer>
+</Layout>

@@ -6,12 +6,16 @@ import '../styles/index.css';
 export interface Props {
   title: string;
   ogType?: string;
+  isEn?: boolean;
 }
 
-const { title, ogType } = Astro.props;
-const siteName = '基礎から学ぶ著作権';
-const description =
-  'このサイトは、大学生を主な対象として、著作権という制度について基礎からわかりやすく学んでもらうことを目的としています。SARTRAS（授業目的公衆送信補償金等管理協会）の共通目的基金の助成を受けて、AXIES（大学ICT推進協議会）が制作しています。';
+const { title, ogType, isEn } = Astro.props;
+const siteName = isEn
+  ? 'Learning about Copyright from the Basics'
+  : '基礎から学ぶ著作権';
+const description = isEn
+  ? ''
+  : 'このサイトは、大学生を主な対象として、著作権という制度について基礎からわかりやすく学んでもらうことを目的としています。SARTRAS（授業目的公衆送信補償金等管理協会）の共通目的基金の助成を受けて、AXIES（大学ICT推進協議会）が制作しています。';
 ---
 
 <script>
@@ -19,7 +23,10 @@ const description =
   popover('.js-nav-trigger', '.js-nav-container');
 </script>
 
-<html lang="ja" class="scroll-pt-4 scroll-smooth font-noto lg:scroll-pt-8">
+<html
+  lang={isEn ? 'en' : 'ja'}
+  class="scroll-pt-4 scroll-smooth font-noto lg:scroll-pt-8"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -45,9 +52,9 @@ const description =
   <body
     class="js-fix-scrollbar flex min-h-screen flex-col bg-sky-100 text-neutral-700 antialiased"
   >
-    <Header />
+    <Header isEn={isEn} />
     <slot />
-    <Footer />
+    <Footer isEn={isEn} />
     <slot name="after-footer" />
   </body>
 </html>

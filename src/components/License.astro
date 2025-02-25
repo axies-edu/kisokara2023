@@ -6,16 +6,21 @@ interface Props {
   excludeNd?: boolean;
   className?: string;
   reverse?: boolean;
+  isEn?: boolean;
 }
 
 const markNames = ['cc', 'by', 'nd'];
-const { align, excludeNd, className, reverse } = Astro.props;
+const { align, excludeNd, className, reverse, isEn } = Astro.props;
 
 const ccPageUrl = excludeNd
   ? 'https://creativecommons.org/licenses/by/4.0/'
   : 'https://creativecommons.org/licenses/by-nd/4.0/';
 const title = excludeNd
-  ? '表示 4.0 国際（CC BY 4.0）'
+  ? isEn
+    ? 'Attribution-  4.0 International（CC BY-ND 4.0）'
+    : '表示 4.0 国際（CC BY 4.0）'
+  : isEn
+  ? 'Attribution-NoDerivatives 4.0 International（CC BY-ND 4.0）'
   : '表示-改変禁止 4.0 国際（CC BY-ND 4.0）';
 ---
 
@@ -41,7 +46,10 @@ const title = excludeNd
 
             const src = `/assets/images/icon-${markName}.svg`;
             const alt = `クリエイティブ・コモンズ・ライセンスの ${markName.toUpperCase()} マーク`;
-            return <img src={src} alt={alt} width="22" height="22" />;
+            const altEn = `クリエイティブ・コモンズ・ライセンスの ${markName.toUpperCase()} マーク`;
+            return (
+              <img src={src} alt={isEn ? altEn : alt} width="22" height="22" />
+            );
           })
         }
       </div>

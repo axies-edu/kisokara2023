@@ -1,11 +1,18 @@
 ---
 import License from './License.astro';
+export interface Props {
+  isEn?: boolean;
+}
+const { isEn } = Astro.props;
 ---
 
 <section class="grid gap-4 rounded-2xl bg-neutral-100 p-6">
-  <License align="right" reverse className="grid place-content-center" />
+  <License align="right" reverse className="grid place-content-center" isEn />
   <p>
-    本動画は「基礎から学ぶ著作権/AXIES/CC BY-ND
-    4.0」のようにクレジットを表記し、改変禁止の条件の下で利用してください。
+    {
+      isEn
+        ? 'Please use the video with the credit “Learning about Copyright from the Basics / AXIES / CC BY-ND 4.0” with NoDerivatives.'
+        : '本動画は「基礎から学ぶ著作権/AXIES/CC BY-ND 4.0」のようにクレジットを表記し、改変禁止の条件の下で利用してください。'
+    }
   </p>
 </section>

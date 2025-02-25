@@ -1,0 +1,66 @@
+---
+import ChildPageContainer from '../../components/ChildPageContainer.astro';
+import CreditNotice from '../../components/CreditNotice.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'この教材について';
+---
+
+<Layout title={title + ' | Learning about Copyright from the Basics'} isEn>
+  <ChildPageContainer title={title}>
+    <div class="grid gap-6 lg:gap-10">
+      <section>
+        <h2 class="mb-4">Planning and production</h2>
+        <p>
+          Academic eXchange for Information Environment and Strategy (AXIES)
+        </p>
+      </section>
+      <section class="[&_p]:indent-[0.875rem]">
+        <h2 class="mb-4">Purpose of This Project</h2>
+        <p>
+          The video was created to help university students learn about the
+          copyright system from the basics in an easy-to-understand way.
+          Following the release of 8 videos in 2022, 15 videos were created and
+          released in 2023. In 2024, the video was translated into English so
+          international students and others could use it.
+        </p>
+        <p>
+          As internet use progresses, copyright becomes relevant in various
+          situations in our daily lives, such as when posting on social media.
+          For example, if you upload someone else's work to social media without
+          permission and show it to many people, you will have infringed on the
+          “public transmission right” of the copyright owner. On the other hand,
+          there may be situations where we create copyrighted works and want to
+          use them in a way that aligns with the author's intentions.
+        </p>
+        <p>
+          The Copyright Act aims to contribute to the development of culture by
+          striking a balance between the fair exploitation of copyrighted works
+          and the protection of the rights of the creators (authors, etc.). In
+          the video, we will be looking at copyright from various angles through
+          examples. We hope the video will help many people become more familiar
+          with the rights of authors and users of copyrighted works and use them
+          properly based on correct knowledge.
+        </p>
+      </section>
+      <section>
+        <h2 class="mb-4">Relevant Information</h2>
+        <p>
+          The video was produced with the support of the Common Purpose Fund of
+          the Society for the Administration of Remuneration for Public
+          Transmission for School Lessons (SARTRAS). In addition to the video,
+          AXIES produces a PDF booklet for teachers. For more information,
+          please see the following URL.
+          <a
+            class="block rounded-sm underline outline-none focus-visible:ring-1 focus-visible:ring-sky-500"
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://axies.jp/report/copyright_education/"
+            >https://axies.jp/report/copyright_education/</a
+          >
+        </p>
+      </section>
+      <CreditNotice isEn />
+    </div>
+  </ChildPageContainer>
+</Layout>

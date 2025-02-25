@@ -6,6 +6,10 @@ import SiteLogo from './SiteLogo.astro';
 import EllipsisHorizontalCircle from './icons/EllipsisHorizontalCircle.astro';
 import ListBullet from './icons/ListBullet.astro';
 
+export interface Props {
+  isEn?: boolean;
+}
+const { isEn } = Astro.props;
 const isHome = Astro.url.pathname === '/';
 const siteLogoClassName =
   'flex max-w-[9rem] justify-center lg:max-w-none xl:ml-0 xl:max-w-[7.5rem] xl:justify-start';
@@ -20,14 +24,14 @@ const siteLogoClassName =
     {
       isHome ? (
         <div>
-          <SiteLogo className={siteLogoClassName} />
+          <SiteLogo className={siteLogoClassName} isEn={isEn} />
         </div>
       ) : (
         <a
-          href="/"
+          href={isEn ? '/en' : '/'}
           class="rounded-sm outline-none focus-visible:ring-1 focus-visible:ring-sky-500"
         >
-          <SiteLogo className={siteLogoClassName} />
+          <SiteLogo className={siteLogoClassName} isEn={isEn} />
         </a>
       )
     }
@@ -35,17 +39,18 @@ const siteLogoClassName =
       <License
         align="right"
         className="mt-6 flex justify-center xl:mt-0 xl:justify-end"
+        isEn
       />
       <HeaderButton className="js-nav-trigger left-4 top-4">
         <EllipsisHorizontalCircle />
-        メニュー
+        {isEn ? 'Menu' : 'メニュー'}
       </HeaderButton>
-      <Navigation />
+      <Navigation isEn={isEn} />
       {
         isHome && (
           <HeaderButton className="js-toc-trigger right-4 top-4">
             <ListBullet />
-            目次
+            {isEn ? 'Contents' : '目次'}
           </HeaderButton>
         )
       }
