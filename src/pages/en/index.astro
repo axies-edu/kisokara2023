@@ -1,6 +1,6 @@
 ---
-import CardListEn from '../../components/CardListEn';
-import ModalListEn from '../../components/ModalListEn.astro';
+import CardEnList from '../../components/CardEnList';
+import ModalEnList from '../../components/ModalEnList.astro';
 import { allData, allKeywords } from '../../contents/data_en';
 import Layout from '../../layouts/Layout.astro';
 
@@ -9,7 +9,7 @@ const videosData = allData.flatMap((data) => data.videos);
 
 <Layout title="Learning about Copyright from the Basics" ogType="website" isEn>
   <main class="m-auto max-w-[120rem] grow px-4 py-8 pb-10 md:px-8 xl:px-10">
-    <CardListEn client:load allData={allData} allKeywords={allKeywords} />
+    <CardEnList client:load allData={allData} allKeywords={allKeywords} />
   </main>
-  <ModalListEn data={videosData} slot="after-footer" />
+  <ModalEnList data={videosData} slot="after-footer" />
 </Layout>

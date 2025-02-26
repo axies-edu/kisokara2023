@@ -1,9 +1,10 @@
 ---
-const { id, filename } = Astro.props;
+const { id, filename, isEn } = Astro.props;
 
 interface Props {
   id: string;
   filename: string;
+  isEn?: boolean;
 }
 ---
 
@@ -47,7 +48,7 @@ interface Props {
             transform="matrix(-0.707107 0.707107 0.707107 0.707107 1.41422 0)"
             fill="currentColor"></rect>
         </svg>
-        <span class="sr-only">とじる</span></button
+        <span class="sr-only">{isEn ? 'Close' : 'とじる'}</span></button
       >
 
       <div id=`modal-${id}-content` class="bg-black">
@@ -64,7 +65,7 @@ interface Props {
           <track
             default
             kind="captions"
-            label="日本語"
+            label={isEn ? 'English' : '日本語'}
             src=`/assets/vtt/${id}.vtt`
             srclang="ja"
           />

@@ -12,7 +12,7 @@ interface Props {
   allData: Data[];
 }
 
-const CardListEn = ({ allKeywords, allData }: Props) => {
+const CardEnList = ({ allKeywords, allData }: Props) => {
   const [selectedKeyword, setSelectedKeyword] = useState<Keyword | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [inputStatus, setInputStatus] = useState<
@@ -132,4 +132,4 @@ const CardListEn = ({ allKeywords, allData }: Props) => {
   );
 };
 
-export default CardListEn;
+export default CardEnList;

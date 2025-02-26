@@ -2,9 +2,10 @@ import { twJoin } from 'tailwind-merge';
 
 interface Props {
   videoId: string;
+  isEn?: boolean;
 }
 
-const SubtitledVideoOpenButton = ({ videoId }: Props) => {
+const SubtitledVideoOpenButton = ({ videoId, isEn }: Props) => {
   return (
     <button
       data-micromodal-trigger={`modal-${videoId}`}
@@ -14,13 +15,26 @@ const SubtitledVideoOpenButton = ({ videoId }: Props) => {
       )}
     >
       <span className="flex items-center gap-2 border-b border-neutral-400 pb-1">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0.5" y="1.5" width="15" height="13" rx="2.5" stroke="currentColor"></rect>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="0.5"
+            y="1.5"
+            width="15"
+            height="13"
+            rx="2.5"
+            stroke="currentColor"
+          ></rect>
           <rect x="3" y="8" width="10" height="1" fill="currentColor"></rect>
           <rect x="3" y="11" width="3" height="1" fill="currentColor"></rect>
           <rect x="7" y="11" width="6" height="1" fill="currentColor"></rect>
         </svg>
-        字幕ありで見る
+        {isEn ? 'With subtitle' : '字幕ありで見る'}
       </span>
     </button>
   );

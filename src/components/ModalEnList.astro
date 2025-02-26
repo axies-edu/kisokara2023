@@ -14,4 +14,4 @@ const { data } = Astro.props;
   setDefaultVolume(0.5);
 </script>
 
-{data.map(({ id, filename }) => <Modal id={id} filename={filename} />)}
+{data.map(({ id, filename }) => <Modal id={id} filename={filename} isEn />)}

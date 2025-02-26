@@ -4,12 +4,23 @@ interface Props {
   videoId: string;
   customLabel: string;
   index: number;
+  isEn?: boolean;
 }
 
-const VideoOpenButton = ({ videoId, customLabel, index }: Props) => {
+const VideoOpenButton = ({ videoId, customLabel, index, isEn }: Props) => {
   const isEven = index % 2 === 0;
   const defaultLabel =
-    index === 0 ? '物語編を見る' : index === 1 ? '解説編を見る' : '動画を見る';
+    index === 0
+      ? isEn
+        ? 'View Stories'
+        : '物語編を見る'
+      : index === 1
+      ? isEn
+        ? 'View Explanation'
+        : '解説編を見る'
+      : isEn
+      ? 'View Movie'
+      : '動画を見る';
   return (
     <button
       data-micromodal-trigger={`modal-${videoId}`}

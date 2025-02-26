@@ -44,7 +44,7 @@ const Navigation = ({ isEn }: Props) => (
             <a
               href={isEn ? '/en' + href : href}
               className={twMerge(
-                'js-toc-close-trigger  my-1.5 flex w-full items-center gap-2 rounded-2xl px-3 py-1.5 text-left outline-none ring-0 transition-all hover:bg-sky-50 focus-visible:bg-sky-50',
+                'js-toc-close-trigger my-1.5 flex w-full items-center gap-2 rounded-2xl px-3 py-1.5 text-left outline-none ring-0 transition-all hover:bg-sky-50 focus-visible:bg-sky-50',
                 'xl:my-0 xl:rounded-sm xl:bg-transparent xl:py-0 xl:ring-sky-500',
                 'xl:focus-visible:bg-transparent xl:focus-visible:ring-1 xl:focus-visible:ring-offset-2 xl:focus-visible:ring-offset-sky-100',
                 'xl:hover:bg-transparent xl:hover:opacity-75'

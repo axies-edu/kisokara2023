@@ -1,4 +1,5 @@
 ---
+import { twMerge } from 'tailwind-merge';
 import HeaderButton from './HeaderButton.astro';
 import License from './License.astro';
 import Navigation from './Navigation';
@@ -10,7 +11,7 @@ export interface Props {
   isEn?: boolean;
 }
 const { isEn } = Astro.props;
-const isHome = Astro.url.pathname === '/';
+const isHome = ['/', '/en'].includes(Astro.url.pathname);
 const siteLogoClassName =
   'flex max-w-[9rem] justify-center lg:max-w-none xl:ml-0 xl:max-w-[7.5rem] xl:justify-start';
 ---
@@ -48,7 +49,7 @@ const siteLogoClassName =
       <Navigation isEn={isEn} />
       {
         isHome && (
-          <HeaderButton className="js-toc-trigger right-4 top-4">
+          <HeaderButton className={twMerge('js-toc-trigger right-4 top-4')}>
             <ListBullet />
             {isEn ? 'Contents' : '目次'}
           </HeaderButton>

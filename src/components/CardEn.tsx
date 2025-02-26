@@ -29,7 +29,7 @@ const CardEn = ({
       className="flex h-full flex-col overflow-hidden rounded-[2rem] bg-white shadow-[0_0_1rem_rgba(31,100,164,0.08)]"
     >
       <img
-        src={`../../assets/images/${imageSrc}`}
+        src={`./assets/images/${imageSrc}`}
         alt=""
         width="320"
         height="180"
@@ -73,8 +73,9 @@ const CardEn = ({
                   videoId={video.id}
                   customLabel={video.buttonLabel}
                   index={index}
+                  isEn
                 />
-                <SubtitledVideoOpenButton videoId={video.id} />
+                <SubtitledVideoOpenButton videoId={video.id} isEn />
               </div>
             );
           })}

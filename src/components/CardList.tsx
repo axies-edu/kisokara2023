@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import Select, { components } from 'react-select';
 import colors from 'tailwindcss/colors';
 import useMicromodal from '../hooks/useMicromodal';
-import CardEn from './CardEn';
+import Card from './Card';
 import Toc from './Toc';
 import type { Data, Keyword } from '../contents/data';
 import type { SelectInstance, InputProps } from 'react-select';
@@ -116,7 +116,7 @@ const CardList = ({ allKeywords, allData }: Props) => {
         <ul className="grid auto-rows-max grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8 2xl:grid-cols-3 2xl:gap-10">
           {showData.map((data) => (
             <li key={data.id}>
-              <CardEn {...data} allKeywords={allKeywords} />
+              <Card {...data} allKeywords={allKeywords} />
             </li>
           ))}
         </ul>
