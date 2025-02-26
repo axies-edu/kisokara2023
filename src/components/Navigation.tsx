@@ -35,7 +35,7 @@ const Navigation = ({ isEn }: Props) => (
     )}
   >
     <div className="max-h-[calc(100svh-7.5rem)] overflow-y-auto">
-      <ul className="flex flex-col p-1 xl:flex-row xl:bg-sky-100">
+      <ul className="flex flex-col p-1 xl:flex-row xl:justify-end xl:bg-sky-100">
         {menuItems.map(({ label, labelEn, href }) => (
           <li
             key={isEn ? labelEn : label}
