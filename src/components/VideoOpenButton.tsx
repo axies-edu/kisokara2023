@@ -12,14 +12,14 @@ const VideoOpenButton = ({ videoId, customLabel, index, isEn }: Props) => {
   const defaultLabel =
     index === 0
       ? isEn
-        ? 'View Stories'
+        ? 'Story'
         : '物語編を見る'
       : index === 1
       ? isEn
-        ? 'View Explanation'
+        ? 'Commentary'
         : '解説編を見る'
       : isEn
-      ? 'View Movie'
+      ? 'Movie'
       : '動画を見る';
   return (
     <button

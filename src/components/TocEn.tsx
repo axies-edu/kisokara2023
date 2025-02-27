@@ -23,7 +23,7 @@ const TocEn = ({ storiesData, onClick }: Props) => {
       )}
     >
       <div className="mx-2 mb-1.5 hidden border-b border-sky-400 pb-2 text-center font-bold text-sky-600 xl:block">
-        目次
+        Contents
       </div>
       <div className="max-h-[calc(100svh-7.5rem)] overflow-y-auto outline-none xl:max-h-[30rem] xl:rounded-2xl xl:focus-visible:bg-sky-50/40">
         <ul className="flex flex-col">

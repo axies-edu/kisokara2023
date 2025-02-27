@@ -352,7 +352,7 @@ export const allData: Data[] = [
     ],
     documents: [
       { filename: '18.pdf' },
-      { label: '関連資料', filename: '18_01_material.pdf' },
+      { label: 'Related Documents', filename: '18_01_material.pdf' },
     ],
   },
   {
@@ -419,7 +419,7 @@ export const allData: Data[] = [
       {
         id: '22a',
         filename: '2023_22ab_ai',
-        buttonLabel: '物語編／解説編を見る',
+        buttonLabel: 'Story & Commentary',
       },
     ],
     documents: [{ filename: '22.pdf' }],
@@ -434,7 +434,7 @@ export const allData: Data[] = [
       {
         id: '23a',
         filename: '2023_23a_interview',
-        buttonLabel: 'インタビューを見る',
+        buttonLabel: 'Interview',
       },
     ],
     documents: [],
@@ -450,12 +450,12 @@ export const allData: Data[] = [
       {
         id: '24a',
         filename: '2023_interview1',
-        buttonLabel: 'おすすめを見る',
+        buttonLabel: 'Recommend',
       },
       {
         id: '24b',
         filename: '2023_interview2',
-        buttonLabel: 'メッセージを見る',
+        buttonLabel: 'Message',
       },
     ],
     documents: [],

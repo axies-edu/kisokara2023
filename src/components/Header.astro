@@ -12,7 +12,7 @@ export interface Props {
   isEn?: boolean;
 }
 const { isEn } = Astro.props;
-const isHome = ['/', '/en'].includes(Astro.url.pathname);
+const isHome = ['/', '/en', '/en/'].includes(Astro.url.pathname);
 const siteLogoClassName =
   'flex max-w-[9rem] justify-center lg:max-w-none xl:ml-0 xl:max-w-[7.5rem] xl:justify-start';
 const currentSlug = Astro.url.pathname;

@@ -6,7 +6,7 @@ interface Props {
 const menuItems = [
   {
     label: 'この教材について',
-    labelEn: 'この教材について',
+    labelEn: 'About this teaching material',
     href: '/about',
   },
   {

@@ -69,7 +69,7 @@ const CardEnList = ({ allKeywords, allData }: Props) => {
         ref={selectContainerRef}
         className="mx-auto mb-8 flex max-w-xl flex-col items-center gap-2 px-6 sm:flex-row"
       >
-        キーワードから絞り込む{' '}
+        Narrow down by keyword{' '}
         <Select
           className="min-w-[15rem] grow"
           components={{ Input }}
@@ -77,13 +77,13 @@ const CardEnList = ({ allKeywords, allData }: Props) => {
           isSearchable
           onChange={handleChange}
           options={allKeywords}
-          placeholder="入力してください"
+          placeholder="Please enter"
           ref={selectRef}
           noOptionsMessage={() => {
             if (isComposingRef.current) {
-              return '入力中...';
+              return 'Typing...';
             } else {
-              return '一致するキーワードがありません';
+              return 'No matching keywords';
             }
           }}
           styles={{

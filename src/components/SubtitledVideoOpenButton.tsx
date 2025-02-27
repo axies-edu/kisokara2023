@@ -2,10 +2,9 @@ import { twJoin } from 'tailwind-merge';
 
 interface Props {
   videoId: string;
-  isEn?: boolean;
 }
 
-const SubtitledVideoOpenButton = ({ videoId, isEn }: Props) => {
+const SubtitledVideoOpenButton = ({ videoId }: Props) => {
   return (
     <button
       data-micromodal-trigger={`modal-${videoId}`}
@@ -34,7 +33,7 @@ const SubtitledVideoOpenButton = ({ videoId, isEn }: Props) => {
           <rect x="3" y="11" width="3" height="1" fill="currentColor"></rect>
           <rect x="7" y="11" width="6" height="1" fill="currentColor"></rect>
         </svg>
-        {isEn ? 'With subtitle' : '字幕ありで見る'}
+        '字幕ありで見る'
       </span>
     </button>
   );
