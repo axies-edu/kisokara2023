@@ -537,8 +537,8 @@ export const allKeywords: Keyword[] = [
   },
   {
     id: 14,
-    value: 'License',
-    label: 'License',
+    value: 'Permission to Use',
+    label: 'Permission to Use',
   },
   {
     id: 15,
@@ -592,8 +592,8 @@ export const allKeywords: Keyword[] = [
   },
   {
     id: 25,
-    value: 'Master-Subject',
-    label: 'Relationship',
+    value: 'Master-Subject Relationship',
+    label: 'Master-Subject Relationship',
   },
   {
     id: 26,
