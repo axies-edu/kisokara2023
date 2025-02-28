@@ -6,6 +6,7 @@ export interface Data {
   storyLabel?: string;
   videos: Video[];
   documents: Document[];
+  hasEnThumbnail?: boolean;
 }
 
 export interface Video {
@@ -459,6 +460,7 @@ export const allData: Data[] = [
       },
     ],
     documents: [],
+    hasEnThumbnail: true,
   },
 ];
 

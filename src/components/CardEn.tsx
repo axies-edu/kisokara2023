@@ -9,6 +9,7 @@ interface Props {
   allKeywords: Keyword[];
   keywordIds?: number[];
   storyLabel?: string;
+  hasEnThumbnail?: boolean;
 }
 
 const CardEn = ({
@@ -19,6 +20,7 @@ const CardEn = ({
   allKeywords,
   keywordIds,
   storyLabel,
+  hasEnThumbnail,
 }: Props) => {
   const imageSrc = `${id.toString().padStart(2, '0')}.jpg`;
 
@@ -28,7 +30,11 @@ const CardEn = ({
       className="flex h-full flex-col overflow-hidden rounded-[2rem] bg-white shadow-[0_0_1rem_rgba(31,100,164,0.08)]"
     >
       <img
-        src={`../assets/images/${imageSrc}`}
+        src={
+          hasEnThumbnail
+            ? `../assets/images/en/${imageSrc}`
+            : `../assets/images/${imageSrc}`
+        }
         alt=""
         width="320"
         height="180"
