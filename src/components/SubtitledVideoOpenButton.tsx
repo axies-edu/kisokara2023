@@ -33,7 +33,7 @@ const SubtitledVideoOpenButton = ({ videoId }: Props) => {
           <rect x="3" y="11" width="3" height="1" fill="currentColor"></rect>
           <rect x="7" y="11" width="6" height="1" fill="currentColor"></rect>
         </svg>
-        '字幕ありで見る'
+        字幕ありで見る
       </span>
     </button>
   );

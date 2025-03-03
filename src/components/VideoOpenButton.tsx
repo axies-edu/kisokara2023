@@ -29,7 +29,8 @@ const VideoOpenButton = ({ videoId, customLabel, index, isEn }: Props) => {
         'focus-visible:ring-1 focus-visible:ring-offset-2',
         isEven
           ? 'bg-sky-600 hover:bg-sky-500 focus-visible:ring-sky-500'
-          : 'bg-orange-500 hover:bg-orange-400 focus-visible:ring-orange-400'
+          : 'bg-orange-500 hover:bg-orange-400 focus-visible:ring-orange-400',
+        isEn && 'js-subtitled-video-trigger'
       )}
     >
       <svg
