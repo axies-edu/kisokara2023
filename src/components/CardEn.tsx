@@ -32,7 +32,7 @@ const CardEn = ({
       <img
         src={
           hasEnThumbnail
-            ? `../assets/images/en/${imageSrc}`
+            ? `../assets/images-en/${imageSrc}`
             : `../assets/images/${imageSrc}`
         }
         alt=""

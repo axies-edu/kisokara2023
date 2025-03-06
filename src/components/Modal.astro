@@ -55,7 +55,7 @@ interface Props {
         <video
           tabindex="0"
           controls
-          src={isEn ? `../clips/${filename}.mp4` : `/clips/${filename}.mp4`}
+          src={isEn ? `../clips-en/${filename}.mp4` : `/clips/${filename}.mp4`}
           playsinline
           preload="none"
           width="1920"
@@ -66,7 +66,7 @@ interface Props {
             default
             kind="captions"
             label={isEn ? 'English' : '日本語'}
-            src={isEn ? `../assets/vtt/${id}.vtt` : `/assets/vtt/${id}.vtt`}
+            src={isEn ? `../assets/vtt-en/${id}.vtt` : `/assets/vtt/${id}.vtt`}
             srclang="ja"
           />
         </video>
