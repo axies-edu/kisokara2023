@@ -80,6 +80,7 @@ export const allData: Data[] = [
       },
     ],
     documents: [{ filename: '03.pdf' }],
+    hasEnThumbnail: true,
   },
   {
     id: 4,
@@ -206,6 +207,7 @@ export const allData: Data[] = [
       },
     ],
     documents: [{ filename: '10.pdf' }],
+    hasEnThumbnail: true,
   },
   {
     id: 11,
@@ -334,6 +336,7 @@ export const allData: Data[] = [
       },
     ],
     documents: [{ filename: '17.pdf' }],
+    hasEnThumbnail: true,
   },
   {
     id: 18,
