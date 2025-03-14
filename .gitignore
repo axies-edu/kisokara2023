@@ -6,6 +6,8 @@ dist/
 # Large files
 public/clips/*
 !public/clips/.keep
+public/clips-en/*
+!public/clips-en/.keep
 
 # dependencies
 node_modules/

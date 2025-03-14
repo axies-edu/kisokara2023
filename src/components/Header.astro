@@ -1,51 +1,62 @@
 ---
+import { twMerge } from 'tailwind-merge';
 import HeaderButton from './HeaderButton.astro';
+import LanguageButton from './LanguageButton';
 import License from './License.astro';
 import Navigation from './Navigation';
 import SiteLogo from './SiteLogo.astro';
 import EllipsisHorizontalCircle from './icons/EllipsisHorizontalCircle.astro';
 import ListBullet from './icons/ListBullet.astro';
 
-const isHome = Astro.url.pathname === '/';
+export interface Props {
+  isEn?: boolean;
+}
+const { isEn } = Astro.props;
+const isHome = ['/', '/en', '/en/'].includes(Astro.url.pathname);
 const siteLogoClassName =
   'flex max-w-[9rem] justify-center lg:max-w-none xl:ml-0 xl:max-w-[7.5rem] xl:justify-start';
+const currentSlug = Astro.url.pathname;
 ---
 
 <header
   class="relative z-10 mx-auto w-full max-w-[120rem] xl:px-10 xl:py-[clamp(24px,1.6vw,32px)]"
 >
   <div
-    class="flex flex-col items-center pt-12 xl:flex-row xl:justify-between xl:pt-0"
+    class="flex flex-col items-center pt-16 xl:flex-row xl:justify-between xl:pt-0"
   >
     {
       isHome ? (
         <div>
-          <SiteLogo className={siteLogoClassName} />
+          <SiteLogo className={siteLogoClassName} isEn={isEn} />
         </div>
       ) : (
         <a
-          href="/"
+          href={isEn ? '/en' : '/'}
           class="rounded-sm outline-none focus-visible:ring-1 focus-visible:ring-sky-500"
         >
-          <SiteLogo className={siteLogoClassName} />
+          <SiteLogo className={siteLogoClassName} isEn={isEn} />
         </a>
       )
     }
     <div class="flex flex-col gap-2">
       <License
         align="right"
-        className="mt-6 flex justify-center xl:mt-0 xl:justify-end"
+        className="mt-6 flex justify-center xl:mt-1 xl:pr-[10.625rem]"
+        isEn={isEn}
       />
+
+      <LanguageButton isEn={isEn} currentSlug={currentSlug} />
+
       <HeaderButton className="js-nav-trigger left-4 top-4">
         <EllipsisHorizontalCircle />
-        メニュー
+        {isEn ? 'Menu' : 'メニュー'}
       </HeaderButton>
-      <Navigation />
+      <Navigation isEn={isEn} />
       {
         isHome && (
-          <HeaderButton className="js-toc-trigger right-4 top-4">
+          <HeaderButton className={twMerge('js-toc-trigger right-4 top-4')}>
             <ListBullet />
-            目次
+            {isEn ? 'Contents' : '目次'}
           </HeaderButton>
         )
       }

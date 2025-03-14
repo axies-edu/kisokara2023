@@ -4,12 +4,23 @@ interface Props {
   videoId: string;
   customLabel: string;
   index: number;
+  isEn?: boolean;
 }
 
-const VideoOpenButton = ({ videoId, customLabel, index }: Props) => {
+const VideoOpenButton = ({ videoId, customLabel, index, isEn }: Props) => {
   const isEven = index % 2 === 0;
   const defaultLabel =
-    index === 0 ? '物語編を見る' : index === 1 ? '解説編を見る' : '動画を見る';
+    index === 0
+      ? isEn
+        ? 'Story'
+        : '物語編を見る'
+      : index === 1
+      ? isEn
+        ? 'Commentary'
+        : '解説編を見る'
+      : isEn
+      ? 'Movie'
+      : '動画を見る';
   return (
     <button
       data-micromodal-trigger={`modal-${videoId}`}
@@ -18,7 +29,8 @@ const VideoOpenButton = ({ videoId, customLabel, index }: Props) => {
         'focus-visible:ring-1 focus-visible:ring-offset-2',
         isEven
           ? 'bg-sky-600 hover:bg-sky-500 focus-visible:ring-sky-500'
-          : 'bg-orange-500 hover:bg-orange-400 focus-visible:ring-orange-400'
+          : 'bg-orange-500 hover:bg-orange-400 focus-visible:ring-orange-400',
+        isEn && 'js-subtitled-video-trigger'
       )}
     >
       <svg

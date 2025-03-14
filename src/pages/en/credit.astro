@@ -1,0 +1,101 @@
+---
+import { twMerge } from 'tailwind-merge';
+import ChildPageContainer from '../../components/ChildPageContainer.astro';
+import CreditNotation from '../../components/CreditNotice.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Credits';
+
+const creditList = [
+  {
+    label: 'Authors',
+    names: [
+      'Izumi Fuse(Hokkaido University)',
+      'Hajime Kita(Kyoto University)',
+      'Tomohito Wada(National Institute of Fitness and Sports in Kanoya)',
+      'Takahiro Tagawa(Chikushi Jogakuen University)',
+      'Takahiro Sumiya(Hiroshima University)',
+      'Yuki Amano(Teikyo University)',
+      'Masako Okamoto(Kyoto University)',
+    ],
+  },
+  {
+    label: 'Legal supervision',
+    names: ['Kodai Kimura(Kobayashi & Yugeta Law Office)'],
+  },
+  {
+    label: 'Cast',
+    names: [
+      'Rei Matsunaga(Aoi Honda）',
+      'Sakura Nagayama(Kasumi Nagano)',
+      'Ryusei Ishida(Naoya Ioka)',
+      'Tomoya Akemura(Ryota Tamura)',
+      'Sora Okumura(Eri Uchida)',
+    ],
+  },
+  {
+    label: 'Narrator',
+    names: ['Susumu Akagi', 'Mii Miki'],
+  },
+  {
+    label: 'Production Cooperation',
+    names: ['Performa Co., Ltd', 'SHISHIZARU INC.', 'OCEAN PICTURES.Co., Ltd'],
+  },
+  {
+    label: 'Location Cooperation',
+    names: ['Teikyo University Hachioji Campus'],
+  },
+  {
+    label: 'Production Staff',
+    names: [
+      'Producer Takashi Kawarada',
+      'Director Keisuke Uji',
+      'Production Manager Takashi Onose, Tomonori Obata',
+      'Director of Photography Daiki Yoshimura',
+      'Music Production Taichiro Nakamura',
+    ],
+  },
+  {
+    label: 'Website Design',
+    names: ['KITERETZ inc.'],
+  },
+];
+---
+
+<Layout title={title + ' | Learning about Copyright from the Basics'} isEn>
+  <ChildPageContainer title={title}>
+    <section>
+      <h2 class="mb-4">Planning and production</h2>
+      <p>Academic eXchange for Information Environment and Strategy (AXIES)</p>
+    </section>
+    <section class="grid">
+      {
+        creditList.map(({ label, names }, i) => (
+          <div
+            class={twMerge(
+              i % 2 === 0 ? 'bg-neutral-100 md:bg-neutral-50' : 'bg-white',
+              'grid p-2 md:grid-cols-[10rem,1fr] md:p-4'
+            )}
+          >
+            <h3 class="mb-1.5 text-sm/relaxed font-bold text-neutral-600 md:mb-0 md:text-base/relaxed">
+              {label}
+            </h3>
+            <ul class="grid gap-1">
+              {names.map((name) => (
+                <li>{name}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </section>
+    <section>
+      <p>
+        The video was produced with the support of the Common Purpose Fund of
+        the Society for the Administration of Remuneration for Public
+        Transmission for School Lessons (SARTRAS).
+      </p>
+    </section>
+    <CreditNotation isEn />
+  </ChildPageContainer>
+</Layout>

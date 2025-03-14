@@ -1,25 +1,32 @@
 import { twMerge } from 'tailwind-merge';
+interface Props {
+  isEn?: boolean;
+}
 
 const menuItems = [
   {
     label: 'この教材について',
+    labelEn: 'About this teaching material',
     href: '/about',
   },
   {
     label: 'CCについて',
+    labelEn: 'Creative Commons License',
     href: '/about_cc',
   },
   {
     label: 'クレジット',
+    labelEn: 'Credits',
     href: '/credit',
   },
   {
     label: '資料',
+    labelEn: 'References',
     href: '/data',
   },
 ];
 
-const Navigation = () => (
+const Navigation = ({ isEn }: Props) => (
   <nav
     className={twMerge(
       'js-nav-container invisible fixed left-0 top-16 mx-4 h-min max-w-[17.5rem] shrink-0 basis-1/4 translate-y-1 overflow-hidden rounded-3xl bg-white p-2 py-3 leading-snug opacity-0 shadow-[0_0_1rem_rgba(31,100,164,0.2)] transition-all',
@@ -28,23 +35,23 @@ const Navigation = () => (
     )}
   >
     <div className="max-h-[calc(100svh-7.5rem)] overflow-y-auto">
-      <ul className="flex flex-col p-1 xl:flex-row xl:bg-sky-100">
-        {menuItems.map(({ label, href }) => (
+      <ul className="flex flex-col p-1 xl:flex-row xl:justify-end xl:bg-sky-100">
+        {menuItems.map(({ label, labelEn, href }) => (
           <li
-            key={label}
+            key={isEn ? labelEn : label}
             className="before:mx-auto before:block before:h-px before:w-11/12 before:bg-sky-100 xl:before:hidden [&:first-child]:before:hidden"
           >
             <a
-              href={href}
+              href={isEn ? '/en' + href : href}
               className={twMerge(
-                'js-toc-close-trigger  my-1.5 flex w-full items-center gap-2 rounded-2xl px-3 py-1.5 text-left outline-none ring-0 transition-all hover:bg-sky-50 focus-visible:bg-sky-50',
+                'js-toc-close-trigger my-1.5 flex w-full items-center gap-2 rounded-2xl px-3 py-1.5 text-left outline-none ring-0 transition-all hover:bg-sky-50 focus-visible:bg-sky-50',
                 'xl:my-0 xl:rounded-sm xl:bg-transparent xl:py-0 xl:ring-sky-500',
                 'xl:focus-visible:bg-transparent xl:focus-visible:ring-1 xl:focus-visible:ring-offset-2 xl:focus-visible:ring-offset-sky-100',
                 'xl:hover:bg-transparent xl:hover:opacity-75'
               )}
             >
               <span className="text-sm xl:border-b xl:border-neutral-400 xl:pb-0.5 xl:leading-relaxed">
-                {label}
+                {isEn ? labelEn : label}
               </span>
             </a>
           </li>

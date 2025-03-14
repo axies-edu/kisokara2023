@@ -1,0 +1,17 @@
+---
+import Modal from './Modal.astro';
+import type { Video } from '../contents/data_en';
+
+interface Props {
+  data: Video[];
+}
+
+const { data } = Astro.props;
+---
+
+<script>
+  import setDefaultVolume from '../scripts/setDefaultVolume';
+  setDefaultVolume(0.5);
+</script>
+
+{data.map(({ id, filename }) => <Modal id={id} filename={filename} isEn />)}
