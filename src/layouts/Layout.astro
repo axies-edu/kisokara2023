@@ -30,7 +30,11 @@ const description = isEn
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={isEn ? '/favicon-en.svg' : '/favicon.svg'}
+    />
     <title>{title}</title>
     <meta name="theme-color" content="#0ea5e9" />
     <meta name="description" content={description} />
@@ -49,8 +53,12 @@ const description = isEn
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href={isEn ? '/en/manifest.json' : '/manifest.json'} />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href={isEn ? '/apple-touch-icon-en.png' : '/apple-touch-icon.png'}
+    />
   </head>
   <body
     class="js-fix-scrollbar flex min-h-screen flex-col bg-sky-100 text-neutral-700 antialiased"
