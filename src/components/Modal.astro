@@ -66,9 +66,20 @@ interface Props {
             default
             kind="captions"
             label={isEn ? 'English' : '日本語'}
-            src={isEn ? `../assets/vtt-en/${id}.vtt` : `/assets/vtt/${id}.vtt`}
-            srclang="ja"
+            src={isEn ? `/assets/vtt-en/${id}.vtt` : `/assets/vtt/${id}.vtt`}
+            srclang={isEn ? 'en' : 'ja'}
           />
+          {
+            (
+              <track
+                default
+                kind="captions"
+                label="日本語"
+                src={`/assets/vtt/${id}.vtt`}
+                srclang="ja"
+              />
+            )
+          }
         </video>
       </div>
     </div>
