@@ -62,11 +62,22 @@ interface Props {
           height="1080"
           class="aspect-video"
         >
+          {
+            isEn && (
+              <track
+                default
+                kind="captions"
+                label="English"
+                src={`/assets/vtt-en/${id}.vtt`}
+                srclang="en"
+              />
+            )
+          }
           <track
-            default
+            default={isEn ? false : true}
             kind="captions"
-            label={isEn ? 'English' : '日本語'}
-            src={isEn ? `../assets/vtt-en/${id}.vtt` : `/assets/vtt/${id}.vtt`}
+            label="日本語"
+            src={`/assets/vtt/${id}.vtt`}
             srclang="ja"
           />
         </video>
